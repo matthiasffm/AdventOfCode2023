@@ -13,7 +13,10 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+
+
+    # .net ci/cd
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
@@ -30,5 +33,16 @@ jobs:
     - name: Test .NET
       run: dotnet test CSharp/aoc2023.csproj --no-build --verbosity normal --configuration Release
 
-    # - name: Setup Typescript
-       # uses: actions/setup-???@v?
+
+    # typescript ci/cd
+
+    - name: Setup Typescript
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install Node and Typescript dependencies
+      run: npm ci
+
+    - name: Run all Typescript tests
+      run: npm test
