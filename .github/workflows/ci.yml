@@ -25,13 +25,16 @@ jobs:
         dotnet-quality: 'ga'
 
     - name: Restore .NET dependencies
-      run: dotnet restore CSharp/aoc2023.csproj
+      working-directory: ./CSharp
+      run: dotnet restore aoc2023.csproj
 
     - name: Build .NET
-      run: dotnet build CSharp/aoc2023.csproj --no-restore --configuration Release
+      working-directory: ./CSharp
+      run: dotnet build aoc2023.csproj --no-restore --configuration Release
 
     - name: Test .NET
-      run: dotnet test CSharp/aoc2023.csproj --no-build --verbosity normal --configuration Release
+      working-directory: ./CSharp
+      run: dotnet test aoc2023.csproj --no-build --verbosity normal --configuration Release
 
 
     # typescript ci/cd
@@ -42,7 +45,9 @@ jobs:
         node-version: 20
 
     - name: Install Node and Typescript dependencies
+      working-directory: ./Typescript
       run: npm ci
 
     - name: Run all Typescript tests
+      working-directory: ./Typescript
       run: npm test
