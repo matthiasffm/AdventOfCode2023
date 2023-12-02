@@ -5,7 +5,7 @@
 //
 // Puzzle == Consider your entire calibration document. What is the sum of all of the calibration values?
 export function puzzle1(lines: Array<string>) : number {
-    return lines.reduce((sum, line) => sum + calibrationValue(line, reverse(line)), 0);
+    return lines.reduce((sum, line) => sum + calibrationValue(line), 0);
 }
 
 // Your calculation isn't quite right. It looks like _some_ of the digits are actually spelled out with letters: one, two, three, four, five, six, seven, eight, and nine _also_
@@ -14,14 +14,15 @@ export function puzzle1(lines: Array<string>) : number {
 //
 // Puzzle == What is the sum of all of the calibration values?
 export function puzzle2(lines: Array<string>) : number {
-    return lines.reduce((sum, line) => sum + calibrationValue(normalize(line), normalizeReverse(line)), 0);
+    return lines.reduce((sum, line) => sum + calibrationValue(normalize(line)), 0);
 }
 
-function calibrationValue(lineL2R: string, lineR2L: string) : number {
-    return mapDigits(lineL2R)[0] * 10 + mapDigits(lineR2L)[0];
+function calibrationValue(line: string) : number {
+    var numbersOnly = filterDigits(line);
+    return numbersOnly[0] * 10 + numbersOnly.at(-1)!;
 }
 
-function mapDigits(line : string) : number[] {
+function filterDigits(line : string) : number[] {
     return line.split('')
                .filter(c => isDigit(c))
                .map(c => parseInt(c[0]));
@@ -43,16 +44,7 @@ const digitMapping : Map<string, string> = new Map([
     ["nine",    "9" ]
 ]);
 
-// normalizes the string by replacing all occurences of digits as word by their digit characters from left to right
+// normalizes the string by adding digit char for all occurences of words for numbers, ignores overlaps
 function normalize(line: string) : string {
-    return line.replace(/one|two|three|four|five|six|seven|eight|nine/gi, matched => digitMapping.get(matched)!);
-}
-
-// normalizes the string by replacing all occurences of digits as word by their digit characters from right to left
-function normalizeReverse(line: string) : string {
-    return reverse(line).replace(/eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/gi, matched => digitMapping.get(reverse(matched))!);
-}
-
-function reverse(s : string) : string {
-    return s.split("").reverse().join("");
+    return line.replace(/(?=(one|two|three|four|five|six|seven|eight|nine))/gi, (dummy, match) => digitMapping.get(match)!);
 }
