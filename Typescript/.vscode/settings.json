@@ -1,5 +1,14 @@
 {
     "files.watcherExclude": {
         "**/target": true
+    },
+
+    "files.exclude": {
+        "**/*.js.map": {
+            "when": "$(basename)"
+        },
+        "**/*.js": {
+            "when": "$(basename).ts"
+        }
     }
 }
