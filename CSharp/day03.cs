@@ -3,6 +3,9 @@ namespace AdventOfCode2023;
 using FluentAssertions;
 using NUnit.Framework;
 
+/// <summary>
+/// Theme: Find gears for the gondola
+/// </summary>
 [TestFixture]
 public class Day03
 {

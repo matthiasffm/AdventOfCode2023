@@ -3,6 +3,9 @@ namespace AdventOfCode2023;
 using FluentAssertions;
 using NUnit.Framework;
 
+/// <summary>
+/// Theme: Find calibration digits in text
+/// </summary>
 [TestFixture]
 public class Day01
 {

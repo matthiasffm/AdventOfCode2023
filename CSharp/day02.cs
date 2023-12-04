@@ -3,6 +3,9 @@ namespace AdventOfCode2023;
 using FluentAssertions;
 using NUnit.Framework;
 
+/// <summary>
+/// Theme: Draw colored cubes from bag
+/// </summary>
 [TestFixture]
 public class Day02
 {
