@@ -54,7 +54,7 @@ describe('solving day05', () => {
         expect(puzzle1(data)).toBe(836040384);
     });
 
-    test('puzzle2 should return  the lowest location number of the mapped seed ranges for the real AoC data', () => {
+    test('puzzle2 should return the lowest location number of the mapped seed ranges for the real AoC data', () => {
         expect(puzzle2(data)).toBe(10834440);
     });
 });
