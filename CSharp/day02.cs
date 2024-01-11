@@ -11,13 +11,13 @@ public class Day02
 {
     private record Game(int Id, IEnumerable<(int r, int g, int b)> draws);
 
-    private static IEnumerable<Game> ParseData(string[] lines) => lines.Select(l => ParseGame(l));
+    private static IEnumerable<Game> ParseData(string[] lines) => lines.Select(l => ParseGame(l)).ToArray();
 
     private static Game ParseGame(string l) => new Game(ParseId(l.Split(':')[0]), ParseDraws(l.Split(':')[1]));
 
     private static int ParseId(string gameId) => int.Parse(gameId.Split(' ')[1]);
 
-    private static IEnumerable<(int r, int g, int b)> ParseDraws(string draw) => draw.Split(';').Select(d => ParseDraw(d));
+    private static IEnumerable<(int r, int g, int b)> ParseDraws(string draw) => draw.Split(';').Select(d => ParseDraw(d)).ToArray();
 
     private static (int r, int g, int b) ParseDraw(string draw)
     {

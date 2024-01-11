@@ -57,7 +57,7 @@ public class Day03
     [Test]
     public void TestAocInput()
     {
-        var lines     = FileUtils.ReadAllLines(this);
+        var lines            = FileUtils.ReadAllLines(this);
         var (symbols, gears) = ParseData(lines);
 
         Puzzle1(lines, symbols).Should().Be(535235);
@@ -164,6 +164,6 @@ public class Day03
         // if any of them has excatly two => sum their gear ratio up as asked
 
         return gearsWithAdjacentNumbers.Where(s => s.Value.Count == 2)
-                                         .Sum(s => s.Value.Aggregate(1, (prod, number) => prod * number));
+                                       .Sum(s => s.Value.Aggregate(1, (prod, number) => prod * number));
     }
 }

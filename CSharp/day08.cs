@@ -3,8 +3,6 @@ namespace AdventOfCode2023;
 using FluentAssertions;
 using NUnit.Framework;
 
-using matthiasffm.Common.Math;
-
 /// <summary>
 /// Theme: navigate the network
 /// </summary>
@@ -113,24 +111,18 @@ public class Day08
 
         // (verified) assumption: all interations have the same breadth
         var current = nodes.Keys.Where(k => k[^1] == 'A').ToArray();
-        var foundZ  = current.Select(n => (First: 0L, Second: 0L)).ToArray();
+        var foundZ  = current.Select(n => 0L).ToArray();
 
         do
         {
             for(int i = 0; i < current.Length; i++)
             {
-                // detect period (second occurrence of Z - first occurrence of Z = period length)
+                // detect period
+                // data is special, first occurence of Z is also period length and there is only one period for every simultaneous path
 
-                if(current[i][^1] == 'Z')
+                if(current[i][^1] == 'Z' && foundZ[i] == 0)
                 {
-                    if(foundZ[i].First == 0)
-                    {
-                        foundZ[i].First = step;
-                    }
-                    else if(foundZ[i].Second == 0)
-                    {
-                        foundZ[i].Second = step;
-                    }
+                    foundZ[i] = step;
                 }
 
                 // move to next iteration
@@ -140,12 +132,8 @@ public class Day08
 
             step++;
         }
-        while(foundZ.Any(p => p.Second == 0));
+        while(foundZ.Any(p => p == 0));
 
-        return Lcm(foundZ.Select(p => p.Second - p.First));
+        return Euclid.Lcm(foundZ);
     }
-
-    private static long Lcm(long a, long b) => a * b / Euclid.Gcd(a, b);
-
-    private static long Lcm(IEnumerable<long> numbers) => numbers.Aggregate(1L, (kgv, number) => Lcm(kgv, number));
 }

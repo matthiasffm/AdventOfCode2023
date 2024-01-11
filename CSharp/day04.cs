@@ -14,8 +14,8 @@ public class Day04
     record Card(IEnumerable<int> Winning, IEnumerable<int> Draw)
     {
         public Card(string[] splits) :
-            this(splits[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)),
-                 splits[2].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)))
+            this(splits[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)).ToArray(),
+                 splits[2].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(n => int.Parse(n)).ToArray())
         { }
     }
 

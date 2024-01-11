@@ -15,7 +15,7 @@ public class Day09
                            .ToList());
 
     [Test]
-    public void TestSamplesPuzzle1()
+    public void TestSamples()
     {
         string[] lines = [
             "0 3 6 9 12 15",
