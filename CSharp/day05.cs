@@ -6,7 +6,7 @@ using NUnit.Framework;
 using matthiasffm.Common.Math;
 
 /// <summary>
-/// Theme: Help the gardener with the seeds
+/// Theme: help the gardener with the seeds
 /// </summary>
 [TestFixture]
 public class Day05

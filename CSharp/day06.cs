@@ -4,7 +4,7 @@ using FluentAssertions;
 using NUnit.Framework;
 
 /// <summary>
-/// Theme: Boat races
+/// Theme: optimize boat races
 /// </summary>
 [TestFixture]
 public class Day06
@@ -63,7 +63,7 @@ public class Day06
     // Puzzle == How many ways can you beat the record in this one much longer race?
     private static long Puzzle2(IEnumerable<(long time, long distance)> races)
         => NumberOfWaysToBeatRecord(long.Parse(string.Join("", races.Select(r => r.time))), 
-                                     long.Parse(string.Join("", races.Select(r => r.distance))));
+                                    long.Parse(string.Join("", races.Select(r => r.distance))));
 
     // solve x * (time - x) > distance
     // roots of x * (time - x) - distance = 0 are

@@ -3,7 +3,7 @@ import { join } from 'path';
 
 import { puzzle1, puzzle2 } from '../src/day07';
 
-describe('solving day07', () => {
+describe('solving day07 (play Camel Cards)', () => {
 
     const sampleData = [
         "32T3K 765",

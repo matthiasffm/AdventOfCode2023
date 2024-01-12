@@ -3,7 +3,7 @@ import { join } from 'path';
 
 import { puzzle1, puzzle2 } from '../src/day02';
 
-describe('solving day02', () => {
+describe('solving day02 (draw colored cubes from bag)', () => {
 
     const sampleData = [
         "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",

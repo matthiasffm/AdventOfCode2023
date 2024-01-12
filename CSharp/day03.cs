@@ -4,7 +4,7 @@ using FluentAssertions;
 using NUnit.Framework;
 
 /// <summary>
-/// Theme: Find gears for the gondola
+/// Theme: find gears for the gondola
 /// </summary>
 [TestFixture]
 public class Day03

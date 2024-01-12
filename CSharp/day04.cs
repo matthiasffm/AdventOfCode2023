@@ -6,7 +6,7 @@ using NUnit.Framework;
 using matthiasffm.Common.Math;
 
 /// <summary>
-/// Theme: Calculate winning points from scratchcards
+/// Theme: calculate winning points from scratchcards
 /// </summary>
 [TestFixture]
 public class Day04

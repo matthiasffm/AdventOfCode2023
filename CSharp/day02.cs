@@ -4,7 +4,7 @@ using FluentAssertions;
 using NUnit.Framework;
 
 /// <summary>
-/// Theme: Draw colored cubes from bag
+/// Theme: draw colored cubes from bag
 /// </summary>
 [TestFixture]
 public class Day02
