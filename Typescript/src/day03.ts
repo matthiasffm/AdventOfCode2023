@@ -6,7 +6,7 @@
 export function puzzle1(lines: Array<string>) : number {
     let symbols = extractSymbols(lines);
 
-    var sumValidNumbers = 0;
+    let sumValidNumbers = 0;
 
     for(let row = 0; row < lines.length; row++) {
         let currentNumber = 0;
@@ -77,7 +77,7 @@ export function puzzle2(lines: Array<string>) : number {
     // in gearsWithAdjacentNumbers are all gears and all their adjacent numbers mapped
     // if any of them has excatly two => sum their gear ratio up as asked
 
-    var sum = 0;
+    let sum = 0;
 
     for(const [gear, adjacentNumbers] of gearsWithAdjacentNumber) {
         if(adjacentNumbers.length == 2) {

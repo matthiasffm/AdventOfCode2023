@@ -113,20 +113,20 @@ function parseSeeds(firstLine: string) : number[] {
 function parseMappings(lines: Array<string>) : Category[] {
     let categories: Array<Category> = [];
 
-    var current: Category = { from: "", to: "", mappings: [] };
+    let current: Category = { from: "", to: "", mappings: [] };
 
-    for(var line = 2; line < lines.length; line++) {
+    for(let line = 2; line < lines.length; line++) {
         if(lines[line].indexOf("map:") > 0) {
             current = {from: lines[line].split('-')[0], to: lines[line].split(/\s|-/)[2], mappings: []};
             categories.push(current);
         }
         else if(lines[line] !== "") {
-            let nmbrs = lines[line].split(' ').map(nmbr => parseInt(nmbr));
+            const nmbrs = lines[line].split(' ').map(nmbr => parseInt(nmbr));
             current.mappings.push({ start: nmbrs[1], end: nmbrs[1] + nmbrs[2] - 1, offset: nmbrs[0] - nmbrs[1] });
         }
     }
 
-    for(var category of categories) {
+    for(let category of categories) {
         addZeroOffsets(category.mappings, 0, 7952449232);
     }
 
@@ -137,8 +137,8 @@ function parseMappings(lines: Array<string>) : Category[] {
 function addZeroOffsets(mappings: Mapping[], min: number, max: number) {
     mappings.sort((a, b) => a.start - b.start);
 
-    var current = min;
-    for(var i = 0; i < mappings.length; i++) {
+    let current = min;
+    for(let i = 0; i < mappings.length; i++) {
         if(current < mappings[i].start) {
             mappings.splice(i, 0, {start: current, end: mappings[i].start - 1, offset: 0});
             i++;

@@ -22,9 +22,9 @@ export function puzzle1(lines: Array<string>) : number {
 //
 // Puzzle == How many total scratchcards do you end up with?
 export function puzzle2(lines: Array<string>) : number {
-    let wins  = lines.map(line => parseLine(line))
-                     .map(card => card.draw.filter(d => card.winning.indexOf(d) >= 0).length);
-    let stack = Array<number>(lines.length).fill(1);
+    const wins  = lines.map(line => parseLine(line))
+                       .map(card => card.draw.filter(d => card.winning.indexOf(d) >= 0).length);
+    const stack = Array<number>(lines.length).fill(1);
 
     for(let i = 1; i < stack.length; i++) {
         for(let win = 0; win < wins[i - 1]; win++) {
@@ -36,9 +36,9 @@ export function puzzle2(lines: Array<string>) : number {
 }
 
 function parseLine(line: string) : {winning: Array<number>, draw: Array<number>} {
-    let split = line.split(': ')[1].split(' | ');
+    const split = line.split(': ')[1].split(' | ');
     return { winning: split[0].split(' ').filter(n => n != ' ' && n != '').map(n => parseInt(n.trim())),
-                draw:    split[1].split(' ').filter(n => n != ' ' && n != '').map(n => parseInt(n.trim())) };
+                draw: split[1].split(' ').filter(n => n != ' ' && n != '').map(n => parseInt(n.trim())) };
 }
 
 function drawValue(pow: number) : number {

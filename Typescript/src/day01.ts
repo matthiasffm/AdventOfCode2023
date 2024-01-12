@@ -18,7 +18,7 @@ export function puzzle2(lines: Array<string>) : number {
 }
 
 function calibrationValue(line: string) : number {
-    var numbersOnly = filterDigits(line);
+    let numbersOnly = filterDigits(line);
     return numbersOnly[0] * 10 + numbersOnly.at(-1)!;
 }
 

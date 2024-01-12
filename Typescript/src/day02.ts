@@ -24,10 +24,11 @@ export function puzzle2(games: Array<string>) : number {
 }
 
 class Draw {
-    r: number;
-    g: number;
-    b: number;
-    constructor(public draw: string) {
+    readonly r: number;
+    readonly g: number;
+    readonly b: number;
+
+    constructor(draw: string) {
         this.r = 0;
         this.g = 0;
         this.b = 0;
@@ -47,10 +48,11 @@ class Draw {
 }
 
 class Game {
-    id : number;
-    draws: Array<Draw>;
-    constructor(public game: string) {
-        var gameSplit = game.split(':');
+    readonly id : number;
+    readonly draws: Array<Draw>;
+
+    constructor(game: string) {
+        const gameSplit = game.split(':');
         this.id = parseInt(gameSplit[0].split(" ")[1]);
 
         this.draws = [];

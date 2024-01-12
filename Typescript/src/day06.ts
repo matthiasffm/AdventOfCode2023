@@ -52,9 +52,9 @@ export function puzzle2(lines: Array<string>) : number {
 //       root r1 = 1/2 (time - sqrt(time^2 - 4 * distance))
 //       root r2 = 1/2 (time + sqrt(time^2 - 4 * distance))
 function numberOfWaysToBeatRecord(race: BoatRace) : number {
-    var sqrt  = Math.sqrt(race.time * race.time - 4 * race.distance);
-    var root1 = (race.time - sqrt) / 2 + 0.0001;
-    var root2 = (race.time + sqrt) / 2 - 0.0001;
+    const sqrt  = Math.sqrt(race.time * race.time - 4 * race.distance);
+    const root1 = (race.time - sqrt) / 2 + 0.0001;
+    const root2 = (race.time + sqrt) / 2 - 0.0001;
 
     return Math.abs(Math.floor(root2) - Math.floor(root1));
 }
