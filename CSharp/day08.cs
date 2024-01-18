@@ -3,6 +3,8 @@ namespace AdventOfCode2023;
 using FluentAssertions;
 using NUnit.Framework;
 
+using matthiasffm.Common.Math;
+
 /// <summary>
 /// Theme: navigate the network
 /// </summary>

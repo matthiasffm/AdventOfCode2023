@@ -60,7 +60,7 @@ public class Day04
         cards.Sum(c => DrawValue(c.Winning.Intersect(c.Draw).Count()));
 
     private static int DrawValue(int nbrOfWinningCards) =>
-        nbrOfWinningCards > 0 ? MathExtensions.Pow2(nbrOfWinningCards - 1) : 0;
+        nbrOfWinningCards > 0 ? Pow2(nbrOfWinningCards - 1) : 0;
 
     // The rules have actually been printed on the back of every card this whole time. There's no such thing as "points". Instead,
     // scratchcards only cause you to win more scratchcards equal to the number of winning numbers you have.
@@ -88,4 +88,6 @@ public class Day04
 
         return stack.Sum();
     }
+
+    private static int Pow2(int pow) => pow.Clamp(0) == 0 ? 1 : 2 << (pow - 1);
 }

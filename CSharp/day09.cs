@@ -4,7 +4,7 @@ using FluentAssertions;
 using NUnit.Framework;
 
 /// <summary>
-/// Theme: predict next or previous number in sequence of environment values
+/// Theme: predict the next or previous environment value
 /// </summary>
 [TestFixture]
 public class Day09
