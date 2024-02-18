@@ -224,6 +224,10 @@ public class Day10
 
         Stack<ImmutableList<Point>> open = new([[start]]);
 
+        // TODO: orders of magnitude too slow, rethink approach
+        //       - add visited set?
+        //       - should be only one loop
+        //       - start is already on loop isnt it?
         while(open.Count > 0)
         {
             var current = open.Pop();
@@ -275,6 +279,7 @@ public class Day10
         // - keep a 'inside' flag updated and switch it everytime the loop is crossed
         //   the loop is crossed if the tiles in the row have the form of | or ┌──┘ or └─┐
         // - if the algorithm is 'inside' and not on a loop tile => add this tile to the inside list
+        // runs in O(row*cols)
 
         for(int row = minRow; row <= maxRow; row++)
         {

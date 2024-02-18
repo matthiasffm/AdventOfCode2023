@@ -74,6 +74,7 @@ public class Day11
                                     .Except(galaxies.Select(g => (int)g.Col))
                                     .ToArray();
 
+        // TODO: precompute expanded missing row offsets and store them as an array => O(1) access instead of O(n) count
         var expandedUniverse = galaxies.Select(g => new Coord(g.Row + missingRows.Count(r => r < g.Row) * (expansion - 1),
                                                               g.Col + missingCols.Count(c => c < g.Col) * (expansion - 1)));
 
